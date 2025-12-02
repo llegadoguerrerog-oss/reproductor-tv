@@ -1,36 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reproductor TV Automático</title>
-<style>
-    body { margin: 0; background: #000; }
-    iframe { width: 100vw; height: 100vh; border: 0; }
-</style>
-</head>
-<body>
-
-<script>
-function getPlayerForHour() {
-    const h = new Date().getHours();
-
-    if (h >= 6 && h < 8) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qP8lUfd_AG_4YVLadosxAZa"; 
-    if (h >= 8 && h < 10) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qPS6Cx7olye8ynsNClwqIH_"; 
-    if (h >= 10 && h < 12) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNw-WAgejZOwAJeqPJ6nrvb";
-    if (h >= 12 && h < 14) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qM_p_TPMvzI57sQYu7biacN";
-    if (h >= 14 && h < 16) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNVL_M6LPKDUILptLaOJh8v";
-    if (h >= 16 && h < 18) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qPa9b-77juu38lyDQWTlCI4";
-    if (h >= 18 && h < 19) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qOS-r79hI3n7b-pSj2rfZb5";
-    if (h >= 19 && h < 20) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qO17iCuDGKYpGsTMZQASWl3";
-    if (h >= 20 && h < 22) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qOUEzDkDPBTcEYbiKkb91pF";
-    if (h >= 22 || h < 0) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qMR5etRwboBNt-EiqWJmgJo";
-    if (h >= 0 && h < 1) return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNIkvU0Q1b5DtqS1tWc8q_I";
-    return "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNqrz36QrA9fYvBjISmpe4i"; // 1am-6am DJ
-}
-
-document.write(<iframe src="${getPlayerForHour()}" allowfullscreen></iframe>);
-</script>
-
+<html>
+<body style="background:black; color:white;">
+<h1>FUNCIONA GITHUB PAGES</h1>
+<p>Si ves este texto, GitHub Pages está funcionando.</p>
 </body>
 </html>
