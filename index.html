@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reproductor Programado</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+iframe {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+}
+</style>
+</head>
+<body>
+
+<script>
+// PROGRAMACIÓN POR HORAS
+const horarios = [
+  { inicio: "06:00", fin: "08:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qP8lUfd_AG_4YVLadosxAZa" },
+  { inicio: "08:00", fin: "10:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qPS6Cx7olye8ynsNClwqIH_" },
+  { inicio: "10:00", fin: "12:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNw-WAgejZOwAJeqPJ6nrvb" },
+  { inicio: "12:00", fin: "14:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qM_p_TPMvzI57sQYu7biacN" },
+  { inicio: "14:00", fin: "16:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNVL_M6LPKDUILptLaOJh8v" },
+  { inicio: "16:00", fin: "18:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qPa9b-77juu38lyDQWTlCI4" },
+  { inicio: "18:00", fin: "19:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qOS-r79hI3n7b-pSj2rfZb5" },
+  { inicio: "19:00", fin: "20:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qO17iCuDGKYpGsTMZQASWl3" },
+  { inicio: "20:00", fin: "22:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qOUEzDkDPBTcEYbiKkb91pF" },
+  { inicio: "22:00", fin: "24:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qMR5etRwboBNt-EiqWJmgJo" },
+  { inicio: "00:00", fin: "01:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNIkvU0Q1b5DtqS1tWc8q_I" },
+  { inicio: "01:00", fin: "06:00", url: "https://www.youtube.com/embed/videoseries?list=PLU3QjW4AF4qNqrz36QrA9fYvBjISmpe4i" }
+];
+
+function convertirHora(hhmm) {
+  const [h, m] = hhmm.split(":");
+  return parseInt(h) * 60 + parseInt(m);
+}
+
+function obtenerURL() {
+  const ahora = new Date();
+  const minutosActuales = ahora.getHours() * 60 + ahora.getMinutes();
+  for (const h of horarios) {
+    const inicio = convertirHora(h.inicio);
+    const fin = convertirHora(h.fin);
+    if (minutosActuales >= inicio && minutosActuales < fin) {
+      return h.url;
+    }
+  }
+  return horarios[0].url;
+}
+
+document.body.innerHTML =
+  <iframe src="${obtenerURL()}" allow="autoplay"></iframe>;
+</script>
+
+</body>
+</html>
